@@ -11,31 +11,25 @@ import * as actionTypes from '../store/actions/actionTypes';
 interface ToDoInterface {
   toDoItems: ToDoListItemPropsInterface[];
   itemsToShow: string;
-  showAllItems?: actionTypes.ShowAllItems;
-  showComplitedItems?: actionTypes.ShowComplitedItems;
-  showActiveItems?: actionTypes.ShowActiveItems;
-  removeItem?: actionTypes.RemoveItemType;
-  changeStatus?: actionTypes.ChangeStatusType;
-  addItem?: actionTypes.AddItemType;
+  showAllItems: actionTypes.ShowAllItems;
+  showComplitedItems: actionTypes.ShowComplitedItems;
+  showActiveItems: actionTypes.ShowActiveItems;
+  removeItem: actionTypes.RemoveItemType;
+  changeStatus: actionTypes.ChangeStatusType;
+  addItem: actionTypes.AddItemType;
 }
 
 const ConnectedToDo: React.FC<ToDoInterface> = props => {
   const showAllBtnClickHandler = () => {
-    if (props.showAllItems) {
-      props.showAllItems();
-    }
+    props.showAllItems();
   };
 
   const showComplitedBtnClickHandler = () => {
-    if (props.showComplitedItems) {
-      props.showComplitedItems();
-    }
+    props.showComplitedItems();
   };
 
   const showActiveBtnClickHandler = () => {
-    if (props.showActiveItems) {
-      props.showActiveItems();
-    }
+    props.showActiveItems();    
   };
 
   return (

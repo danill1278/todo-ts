@@ -5,8 +5,8 @@ import * as actionTypes from '../store/actions/actionTypes';
 export interface ToDoListPropInterface {
   items: ToDoListItemPropsInterface[];
   itemsToShow: string;
-  removeItem?: actionTypes.RemoveItemType;
-  changeStatus?: actionTypes.ChangeStatusType;
+  removeItem: actionTypes.RemoveItemType;
+  changeStatus: actionTypes.ChangeStatusType;
 }
 
 const ToDoList: React.FC<ToDoListPropInterface> = props => {

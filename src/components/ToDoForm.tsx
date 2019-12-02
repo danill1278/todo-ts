@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import * as actionTypes from '../store/actions/actionTypes';
 
 interface ToDoFormInterface {
-  addItem?: actionTypes.AddItemType;
+  addItem: actionTypes.AddItemType;
 }
 
 const ToDoForm: React.FC<ToDoFormInterface> = ( props ) => {
@@ -13,10 +13,8 @@ const ToDoForm: React.FC<ToDoFormInterface> = ( props ) => {
   };
 
   const submitForm = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (props.addItem) {
-      props.addItem({ title: inputValue, id: performance.now(), status: true });
-    }
+    e.preventDefault()
+    props.addItem({ title: inputValue, id: performance.now(), status: true });
   };
 
   return (
