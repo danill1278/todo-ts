@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import AddToDo from './AddToDo';
+import ToDoForm from './ToDoForm';
 import ToDoList from './ToDoList';
 
 import { ToDoListItemPropsInterface } from './ToDoListItem';
@@ -16,6 +16,7 @@ interface ToDoInterface {
   showActiveItems?: actionTypes.ShowActiveItems;
   removeItem?: actionTypes.RemoveItemType;
   changeStatus?: actionTypes.ChangeStatusType;
+  addItem?: actionTypes.AddItemType;
 }
 
 const ConnectedToDo: React.FC<ToDoInterface> = props => {
@@ -39,7 +40,7 @@ const ConnectedToDo: React.FC<ToDoInterface> = props => {
 
   return (
     <div className="todo">
-      <AddToDo />
+      <ToDoForm  addItem={props.addItem}/>
       Items type: {props.itemsToShow}
       <ToDoList
         removeItem={props.removeItem}
@@ -66,7 +67,8 @@ const mapDispatchToProps = {
   showComplitedItems: actionCreators.showComplitedItems,
   showActiveItems: actionCreators.showActiveItems,
   removeItem: actionCreators.removeItem,
-  changeStatus: actionCreators.changeStatus
+  changeStatus: actionCreators.changeStatus,
+  addItem: actionCreators.addItem
 };
 
 const ToDo = connect(mapStateToProps, mapDispatchToProps)(ConnectedToDo);

@@ -1,15 +1,11 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { addItem } from '../store/actions/actions';
+import * as actionTypes from '../store/actions/actionTypes';
 
-import { AddItemType } from '../store/actions/actionTypes';
-
-interface AddToDoInterface {
-  addItem?: AddItemType;
+interface ToDoFormInterface {
+  addItem?: actionTypes.AddItemType;
 }
 
-const ConnectedAddToDo: React.FC<AddToDoInterface> = ({ addItem }) => {
+const ToDoForm: React.FC<ToDoFormInterface> = ( props ) => {
   const [inputValue, setInputValue] = useState('');
 
   const inputChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -18,8 +14,8 @@ const ConnectedAddToDo: React.FC<AddToDoInterface> = ({ addItem }) => {
 
   const submitForm = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (addItem) {
-      addItem({ title: inputValue, id: performance.now(), status: true });
+    if (props.addItem) {
+      props.addItem({ title: inputValue, id: performance.now(), status: true });
     }
   };
 
@@ -42,10 +38,5 @@ const ConnectedAddToDo: React.FC<AddToDoInterface> = ({ addItem }) => {
   );
 };
 
-const mapDispatchToProps = (dispatch: any) => {
-  return { addItem: bindActionCreators(addItem, dispatch) };
-};
 
-const AddToDo = connect(null, mapDispatchToProps)(ConnectedAddToDo);
-
-export default AddToDo;
+export default ToDoForm;
