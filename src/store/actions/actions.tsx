@@ -6,7 +6,7 @@ import {
   SHOW_ALL_ITEMS,
   SHOW_COMPLITED_ITEMS,
   SHOW_ACTIVE_ITEMS
-} from '../actions/actions-constants';
+} from './actionsConstants';
 import * as actionsTypes from './actionTypes';
 
 export const addItem: actionsTypes.AddItemType = (prop: ToDoListItemPropsInterface) => {

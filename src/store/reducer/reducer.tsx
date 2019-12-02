@@ -6,7 +6,7 @@ import {
   SHOW_ALL_ITEMS,
   SHOW_COMPLITED_ITEMS,
   SHOW_ACTIVE_ITEMS
-} from '../actions/actions-constants';
+} from '../actions/actionsConstants';
 import { ActionInterface } from '../actions/actionTypes';
 
 export interface StoreInterface {

@@ -5,7 +5,7 @@ import {
   SHOW_ALL_ITEMS,
   SHOW_COMPLITED_ITEMS,
   SHOW_ACTIVE_ITEMS
-} from './actions-constants';
+} from './actionsConstants';
 import { ToDoListItemPropsInterface } from '../../components/ToDoListItem';
 
 export interface AddItemActionInterface {
