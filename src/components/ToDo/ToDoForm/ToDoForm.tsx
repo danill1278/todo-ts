@@ -1,11 +1,7 @@
 import React, { useState } from 'react';
-import * as actionTypes from '../store/actions/actionTypes';
+import { ToDoFormInterface } from '../../../types/components/ToDo/ToDoForm/types';
 
-interface ToDoFormInterface {
-  addItem: actionTypes.AddItemType;
-}
-
-const ToDoForm: React.FC<ToDoFormInterface> = ( props ) => {
+const ToDoForm: React.FC<ToDoFormInterface> = props => {
   const [inputValue, setInputValue] = useState('');
 
   const inputChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -13,28 +9,34 @@ const ToDoForm: React.FC<ToDoFormInterface> = ( props ) => {
   };
 
   const submitForm = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    props.addItem({ title: inputValue, id: performance.now(), status: true });
+    e.preventDefault();
+    if (inputValue.length) {
+      props.addItem({ title: inputValue, id: Date.now(), status: true });
+      setInputValue('');
+    }
   };
 
   return (
     <form
+      className="todo__form"
       onSubmit={event => {
         submitForm(event);
       }}
+      data-testid="todo_form"
     >
       <input
+        className="todo__input"
         type="text"
+        data-testid="todo__input"
         onChange={event => {
           inputChangeHandler(event);
         }}
         value={inputValue}
         placeholder="Add ToDo item"
       />
-      <input type="submit" />
+      <input type="submit" className="todo__input todo__input--type-submit" />
     </form>
   );
 };
-
 
 export default ToDoForm;

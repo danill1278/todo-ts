@@ -5,8 +5,8 @@ import {
   SHOW_ALL_ITEMS,
   SHOW_COMPLITED_ITEMS,
   SHOW_ACTIVE_ITEMS
-} from './actionsConstants';
-import { ToDoListItemPropsInterface } from '../../components/ToDoListItem';
+} from '../../../store/actions/actionsConstants';
+import { ToDoListItemPropsInterface } from '../../components/ToDo/ToDoListItem/types';
 
 export interface AddItemActionInterface {
   type: typeof ADD_TODO_ITEM;
@@ -43,9 +43,11 @@ export type ActionInterface =
   | ShowAllActionInterface
   | ShowComlitedActionInterface;
 
-export type ShowAllItems = () => {};
-export type ShowComplitedItems = () => {};
-export type ShowActiveItems = () => {};
-export type AddItemType = (prop: ToDoListItemPropsInterface) => {};
-export type RemoveItemType = (id: number) => {};
-export type ChangeStatusType = (id: number) => {};
+export type ShowAllItems = () => ShowAllActionInterface;
+export type ShowComplitedItems = () => ShowComlitedActionInterface;
+export type ShowActiveItems = () => ShowActiveActionInterface;
+export type AddItemType = (
+  prop: ToDoListItemPropsInterface
+) => AddItemActionInterface;
+export type RemoveItemType = (id: number) => RemoveItemActionInterface;
+export type ChangeStatusType = (id: number) => ChangeStatusActionInterface;

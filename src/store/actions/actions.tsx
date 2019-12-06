@@ -1,4 +1,4 @@
-import { ToDoListItemPropsInterface } from '../../components/ToDoListItem';
+import { ToDoListItemPropsInterface } from '../../types/components/ToDo/ToDoListItem/types';
 import {
   ADD_TODO_ITEM,
   REMOVE_TODO_ITEM,
@@ -7,9 +7,11 @@ import {
   SHOW_COMPLITED_ITEMS,
   SHOW_ACTIVE_ITEMS
 } from './actionsConstants';
-import * as actionsTypes from './actionTypes';
+import * as actionsTypes from '../../types/store/actions/types';
 
-export const addItem: actionsTypes.AddItemType = (prop: ToDoListItemPropsInterface) => {
+export const addItem: actionsTypes.AddItemType = (
+  prop: ToDoListItemPropsInterface
+) => {
   return {
     type: ADD_TODO_ITEM,
     payload: prop

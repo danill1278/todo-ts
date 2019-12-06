@@ -1,4 +1,4 @@
-import { ToDoListItemPropsInterface } from '../../components/ToDoListItem';
+import { ToDoListItemPropsInterface } from '../../types/components/ToDo/ToDoListItem/types';
 import {
   ADD_TODO_ITEM,
   REMOVE_TODO_ITEM,
@@ -7,16 +7,12 @@ import {
   SHOW_COMPLITED_ITEMS,
   SHOW_ACTIVE_ITEMS
 } from '../actions/actionsConstants';
-import { ActionInterface } from '../actions/actionTypes';
+import { ActionInterface } from '../../types/store/actions/types';
+import { StoreInterface } from '../../types/store/reducer/types';
 
-export interface StoreInterface {
-  toDoItems: Array<ToDoListItemPropsInterface> | [];
-  itemsToShow: string;
-}
-
-const initialState = {
+export const initialState = {
   toDoItems: [],
-  itemsToShow: 'all'
+  itemsToShowFlag: 'all'
 };
 
 export const reducer = (
@@ -58,19 +54,19 @@ export const reducer = (
     case SHOW_ALL_ITEMS:
       return {
         ...state,
-        itemsToShow: 'all'
+        itemsToShowFlag: 'all'
       };
     case SHOW_COMPLITED_ITEMS:
       return {
         ...state,
-        itemsToShow: 'complited'
+        itemsToShowFlag: 'complited'
       };
     case SHOW_ACTIVE_ITEMS:
       return {
         ...state,
-        itemsToShow: 'active'
+        itemsToShowFlag: 'active'
       };
+    default:
+      return state;
   }
-
-  return state;
 };
