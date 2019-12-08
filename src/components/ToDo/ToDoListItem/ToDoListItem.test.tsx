@@ -29,6 +29,8 @@ describe('Todo list items test:', () => {
     store.clearActions();
   });
 
+  
+
   beforeEach(() => {
     component = render(
       <Provider store={store}>
