@@ -92,7 +92,7 @@ describe('Todo list items test:', () => {
     const actions = store.getActions();
     const expectedPayload = {
       payload: store.getState().toDoItems[0].id,
-      type: 'CHANGE_ITEM_STATUS1'
+      type: 'CHANGE_ITEM_STATUS'
     };
     expect(actions).toEqual([expectedPayload]);
   });
